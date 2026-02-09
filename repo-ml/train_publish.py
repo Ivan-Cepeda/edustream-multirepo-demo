@@ -6,10 +6,10 @@ from pathlib import Path
 # Calculamos la ruta base basándonos en la ubicación de ESTE archivo script
 BASE_DIR = Path(__file__).resolve().parent 
 
-print('>> [ML TEAM] Iniciando entrenamiento v2.0...')
+print('>> [ML TEAM] Iniciando entrenamiento v2.2...')
 
 modelo = {
-    'version': 'v2.0', 
+    'version': 'v2.2', 
     'algoritmo': 'RandomForest', 
     'status': 'production'
 }
@@ -17,7 +17,7 @@ modelo = {
 # Guardado Local (Usando BASE_DIR)
 local_folder = BASE_DIR / 'models'
 os.makedirs(local_folder, exist_ok=True)
-local_path = local_folder / 'churn_model_v2.pkl'
+local_path = local_folder / 'churn_model_v2.2.pkl'
 
 with open(local_path, 'wb') as f:
     pickle.dump(modelo, f)
@@ -26,7 +26,7 @@ print(f'   - Modelo guardado localmente en: {local_path.name}')
 # PUBLICACIÓN
 # Navegamos desde BASE_DIR hacia el registro
 # "Sube uno (parent) y busca 'artifact-registry'"
-registry_path = BASE_DIR.parent / 'artifact-registry' / 'churn_model_v2.pkl'
+registry_path = BASE_DIR.parent / 'artifact-registry' / 'churn_model_v2.2.pkl'
 
 print(f'   - ☁️  Subiendo artefacto al Registry...')
 
